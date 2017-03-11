@@ -1,0 +1,728 @@
+ERROR 2017-03-10 17:57:14,090: airflow.www.app: log_exception: 1423: Exception on /admin/airflow/graph [GET]: ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask_admin/base.py", line 68, in inner
+    return self._run_view(f, *args, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask_admin/base.py", line 367, in _run_view
+    return fn(self, *args, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/flask_login.py", line 755, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/www/utils.py", line 213, in view_func
+    return f(*args, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/www/utils.py", line 118, in wrapper
+    return f(*args, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/www/views.py", line 1311, in graph
+    dag = dagbag.get_dag(dag_id)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 198, in get_dag
+    filepath=orm_dag.fileloc, only_if_updated=False)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 214, in process_file
+    if not os.path.isfile(filepath):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/genericpath.py", line 37, in isfile
+    st = os.stat(path)
+TypeError: coercing to Unicode: need string or buffer, NoneType found
+INFO 2017-03-10 17:59:26,972: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:29:26.898392: scheduled__2017-03-10T14:29:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:26,980: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:29:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:27,024: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:29:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:33,280: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 17:59:33,289: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:29:26.898392: ()
+ERROR 2017-03-10 17:59:33,308: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 17:59:33,313: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 17:59:33,323: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 17:59:34,333: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:29:26.898392: scheduled__2017-03-10T14:29:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:34,333: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:30:26.898392: scheduled__2017-03-10T14:30:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:34,341: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:30:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:34,400: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:30:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:37,095: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 17:59:37,106: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:30:26.898392: ()
+ERROR 2017-03-10 17:59:37,120: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 17:59:37,122: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 17:59:37,133: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 17:59:41,296: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:29:26.898392: scheduled__2017-03-10T14:29:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:41,296: airflow.models.DAG: get_active_runs: 2675: Marking run <DagRun twitter @ 2017-03-10 14:29:26.898392: scheduled__2017-03-10T14:29:26.898392, externally triggered: False> failed: ()
+INFO 2017-03-10 17:59:41,296: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:30:26.898392: scheduled__2017-03-10T14:30:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:41,296: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:31:26.898392: scheduled__2017-03-10T14:31:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:41,306: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:31:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:41,356: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:31:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:43,415: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 17:59:43,427: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:31:26.898392: ()
+ERROR 2017-03-10 17:59:43,445: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 17:59:43,448: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 17:59:43,458: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 17:59:47,572: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:30:26.898392: scheduled__2017-03-10T14:30:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:47,573: airflow.models.DAG: get_active_runs: 2675: Marking run <DagRun twitter @ 2017-03-10 14:30:26.898392: scheduled__2017-03-10T14:30:26.898392, externally triggered: False> failed: ()
+INFO 2017-03-10 17:59:47,573: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:31:26.898392: scheduled__2017-03-10T14:31:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:47,573: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:32:26.898392: scheduled__2017-03-10T14:32:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 17:59:47,585: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:32:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 17:59:47,643: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:32:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:01:03,616: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:31:26.898392: scheduled__2017-03-10T14:31:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:01:03,617: airflow.models.DAG: get_active_runs: 2675: Marking run <DagRun twitter @ 2017-03-10 14:31:26.898392: scheduled__2017-03-10T14:31:26.898392, externally triggered: False> failed: ()
+INFO 2017-03-10 18:01:03,617: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:32:26.898392: scheduled__2017-03-10T14:32:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:01:03,617: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:33:26.898392: scheduled__2017-03-10T14:33:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:01:03,630: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:32:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:01:03,637: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:33:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:01:03,701: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:33:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:01:07,192: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:01:07,216: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:33:26.898392: ()
+ERROR 2017-03-10 18:01:07,235: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 18:01:07,237: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:01:07,247: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 18:01:09,797: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:32:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:01:11,746: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:01:11,755: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:32:26.898392: ()
+ERROR 2017-03-10 18:01:11,770: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 18:01:11,771: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:01:11,777: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 18:03:28,535: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:03:28,536: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:03:28,548: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 18:03:28,549: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:03:28,549: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 18:04:11,187: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:04:11,188: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:04:11,201: root: handle_failure: 1286: load_into_elastic() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: load_into_elastic() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 18:04:11,202: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:04:11,202: root: handle_failure: 1327: load_into_elastic() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 18:06:09,999: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:06:10,000: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:06:10,015: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:06:37,664: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:06:37,665: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:06:37,681: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:08:59,901: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:08:59,902: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:08:59,915: root: handle_failure: 1286: process() takes exactly 2 arguments (1 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: process() takes exactly 2 arguments (1 given)
+INFO 2017-03-10 18:08:59,918: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:08:59,918: root: handle_failure: 1327: process() takes exactly 2 arguments (1 given): ()
+INFO 2017-03-10 18:12:02,519: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:12:02,520: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:12:02,535: root: handle_failure: 1286: __analyze_tweets() takes exactly 1 argument (0 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: __analyze_tweets() takes exactly 1 argument (0 given)
+INFO 2017-03-10 18:12:02,536: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:12:02,536: root: handle_failure: 1327: __analyze_tweets() takes exactly 1 argument (0 given): ()
+INFO 2017-03-10 18:12:57,447: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:12:57,448: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:12:57,460: root: handle_failure: 1286: __analyze_tweets() takes exactly 1 argument (0 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: __analyze_tweets() takes exactly 1 argument (0 given)
+INFO 2017-03-10 18:12:57,461: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:12:57,462: root: handle_failure: 1327: __analyze_tweets() takes exactly 1 argument (0 given): ()
+INFO 2017-03-10 18:13:16,827: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:13:16,827: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:13:16,839: root: handle_failure: 1286: a() takes exactly 1 argument (0 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: a() takes exactly 1 argument (0 given)
+INFO 2017-03-10 18:13:16,840: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:13:16,840: root: handle_failure: 1327: a() takes exactly 1 argument (0 given): ()
+INFO 2017-03-10 18:13:45,491: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:13:45,492: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:13:45,507: root: handle_failure: 1286: __analyze_tweets() takes exactly 1 argument (0 given): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: __analyze_tweets() takes exactly 1 argument (0 given)
+INFO 2017-03-10 18:13:45,508: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:13:45,508: root: handle_failure: 1327: __analyze_tweets() takes exactly 1 argument (0 given): ()
+INFO 2017-03-10 18:14:31,841: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:14:31,841: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:14:31,854: root: execute: 67: Done. Returned value was: Whatever you return gets printed in the logs: ()
+INFO 2017-03-10 18:14:48,208: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:14:48,209: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:14:48,220: root: execute: 67: Done. Returned value was: Whatever you return gets printed in the logs: ()
+INFO 2017-03-10 18:15:08,231: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:15:08,231: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:15:08,250: root: execute: 67: Done. Returned value was: Whatever you return gets printed in the logs: ()
+INFO 2017-03-10 18:15:39,067: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:15:39,068: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:15:39,082: root: handle_failure: 1286: unsupported operand type(s) for -: 'str' and 'datetime.timedelta': ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/fartash/Dev/ETL-boilerplate/airflow/dags/twitter.py", line 28, in __twitter_transformer
+    twitter_transformer.process(ds,**kwargs)
+  File "/home/fartash/Dev/ETL-boilerplate/app/transformer/twitter.py", line 21, in process
+    raw_records = self.__fetch_tweets(dt - kwargs.get('interval'), dt)
+TypeError: unsupported operand type(s) for -: 'str' and 'datetime.timedelta'
+INFO 2017-03-10 18:15:39,083: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:15:39,084: root: handle_failure: 1327: unsupported operand type(s) for -: 'str' and 'datetime.timedelta': ()
+INFO 2017-03-10 18:16:22,052: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:16:22,053: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+ERROR 2017-03-10 18:16:22,067: root: handle_failure: 1286: unsupported operand type(s) for -: 'str' and 'datetime.timedelta': ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/fartash/Dev/ETL-boilerplate/app/transformer/twitter.py", line 21, in process
+    raw_records = self.__fetch_tweets(ds - kwargs.get('interval'), ds)
+TypeError: unsupported operand type(s) for -: 'str' and 'datetime.timedelta'
+INFO 2017-03-10 18:16:22,068: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:16:22,069: root: handle_failure: 1327: unsupported operand type(s) for -: 'str' and 'datetime.timedelta': ()
+INFO 2017-03-10 18:16:48,623: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:16:48,624: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:16:48,679: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:17:45,395: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:17:45,395: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:17:45,416: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.007s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.0066280364990234375)
+INFO 2017-03-10 18:17:45,425: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:06,713: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:32:26.898392: scheduled__2017-03-10T14:32:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:06,713: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:33:26.898392: scheduled__2017-03-10T14:33:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:06,714: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:34:26.898392: scheduled__2017-03-10T14:34:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:06,724: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:34:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:06,909: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:34:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:09,068: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:09,083: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:34:26.898392: ()
+INFO 2017-03-10 18:18:09,118: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:13,289: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:32:26.898392: scheduled__2017-03-10T14:32:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:13,290: airflow.models.DAG: get_active_runs: 2675: Marking run <DagRun twitter @ 2017-03-10 14:32:26.898392: scheduled__2017-03-10T14:32:26.898392, externally triggered: False> failed: ()
+INFO 2017-03-10 18:18:13,290: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:33:26.898392: scheduled__2017-03-10T14:33:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:13,290: airflow.models.DAG: get_active_runs: 2675: Marking run <DagRun twitter @ 2017-03-10 14:33:26.898392: scheduled__2017-03-10T14:33:26.898392, externally triggered: False> failed: ()
+INFO 2017-03-10 18:18:13,290: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:34:26.898392: scheduled__2017-03-10T14:34:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:13,290: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:35:26.898392: scheduled__2017-03-10T14:35:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:13,375: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:35:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:13,383: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:34:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:13,481: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:35:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:15,912: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:15,922: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:35:26.898392: ()
+INFO 2017-03-10 18:18:15,953: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:19,903: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:34:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:22,189: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:22,197: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:34:26.898392: ()
+INFO 2017-03-10 18:18:22,217: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.004s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.004374027252197266)
+INFO 2017-03-10 18:18:22,223: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:26,253: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:34:26.898392: scheduled__2017-03-10T14:34:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:26,254: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:34:26.898392: scheduled__2017-03-10T14:34:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:18:26,254: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:35:26.898392: scheduled__2017-03-10T14:35:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:26,254: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:36:26.898392: scheduled__2017-03-10T14:36:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:26,264: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:36:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:26,273: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:35:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:26,325: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:36:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:28,739: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:28,748: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:36:26.898392: ()
+INFO 2017-03-10 18:18:28,776: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:32,702: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:35:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:36,063: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:36,177: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:35:26.898392: ()
+INFO 2017-03-10 18:18:36,518: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.312s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.31155896186828613)
+INFO 2017-03-10 18:18:36,534: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:39,185: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:35:26.898392: scheduled__2017-03-10T14:35:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:39,186: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:35:26.898392: scheduled__2017-03-10T14:35:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:18:39,186: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:36:26.898392: scheduled__2017-03-10T14:36:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:39,186: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:37:26.898392: scheduled__2017-03-10T14:37:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:39,198: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:37:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:39,210: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:36:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:39,265: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:37:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:41,665: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:41,674: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:37:26.898392: ()
+INFO 2017-03-10 18:18:41,702: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:45,638: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:36:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:48,213: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:48,231: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:36:26.898392: ()
+INFO 2017-03-10 18:18:48,254: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.005s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.004531145095825195)
+INFO 2017-03-10 18:18:48,262: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:52,135: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:36:26.898392: scheduled__2017-03-10T14:36:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:52,136: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:36:26.898392: scheduled__2017-03-10T14:36:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:18:52,136: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:37:26.898392: scheduled__2017-03-10T14:37:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:52,136: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:38:26.898392: scheduled__2017-03-10T14:38:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:18:52,150: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:38:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:52,159: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:37:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:52,209: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:38:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:18:54,585: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:18:54,593: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:38:26.898392: ()
+INFO 2017-03-10 18:18:54,621: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:18:58,626: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:37:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:00,860: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:00,871: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:37:26.898392: ()
+INFO 2017-03-10 18:19:00,889: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.004s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.003582000732421875)
+INFO 2017-03-10 18:19:00,895: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:04,995: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:37:26.898392: scheduled__2017-03-10T14:37:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:04,995: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:37:26.898392: scheduled__2017-03-10T14:37:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:19:04,996: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:38:26.898392: scheduled__2017-03-10T14:38:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:04,996: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:39:26.898392: scheduled__2017-03-10T14:39:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:05,011: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:39:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:05,022: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:38:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:05,073: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:39:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:07,362: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:07,372: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:39:26.898392: ()
+INFO 2017-03-10 18:19:07,400: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:11,460: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:38:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:14,644: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:14,670: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:38:26.898392: ()
+INFO 2017-03-10 18:19:14,706: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.006s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.005604982376098633)
+INFO 2017-03-10 18:19:14,722: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:18,279: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:38:26.898392: scheduled__2017-03-10T14:38:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:18,280: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:38:26.898392: scheduled__2017-03-10T14:38:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:19:18,280: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:39:26.898392: scheduled__2017-03-10T14:39:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:18,280: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:40:26.898392: scheduled__2017-03-10T14:40:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:18,299: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:40:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:18,317: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:39:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:18,359: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:40:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:20,625: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:20,639: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:40:26.898392: ()
+INFO 2017-03-10 18:19:20,679: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:24,590: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:39:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:27,038: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:27,048: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:39:26.898392: ()
+INFO 2017-03-10 18:19:27,068: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.004s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.003826141357421875)
+INFO 2017-03-10 18:19:27,079: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:31,048: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:39:26.898392: scheduled__2017-03-10T14:39:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:31,048: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:39:26.898392: scheduled__2017-03-10T14:39:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:19:31,048: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:40:26.898392: scheduled__2017-03-10T14:40:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:31,048: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:41:26.898392: scheduled__2017-03-10T14:41:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:31,062: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:41:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:31,070: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:40:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:31,125: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:41:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:33,210: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:33,219: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:41:26.898392: ()
+INFO 2017-03-10 18:19:33,251: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:37,277: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:40:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:39,402: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:39,412: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:40:26.898392: ()
+INFO 2017-03-10 18:19:39,431: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.003s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.003473997116088867)
+INFO 2017-03-10 18:19:39,438: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:43,590: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:40:26.898392: scheduled__2017-03-10T14:40:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:43,590: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:40:26.898392: scheduled__2017-03-10T14:40:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:19:43,591: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:41:26.898392: scheduled__2017-03-10T14:41:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:43,591: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:42:26.898392: scheduled__2017-03-10T14:42:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:19:43,606: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:42:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:43,617: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:41:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:43,681: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:42:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:45,880: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:45,889: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:42:26.898392: ()
+INFO 2017-03-10 18:19:45,928: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:19:49,902: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:41:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:19:52,152: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:19:52,167: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:41:26.898392: ()
+INFO 2017-03-10 18:19:52,195: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.004s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.00398707389831543)
+INFO 2017-03-10 18:19:52,207: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:22:42,889: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:22:42,890: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:22:42,977: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:23:33,378: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:23:33,379: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 00:00:00: ()
+INFO 2017-03-10 18:23:33,407: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:24:21,593: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:41:26.898392: scheduled__2017-03-10T14:41:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:24:21,593: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:41:26.898392: scheduled__2017-03-10T14:41:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:24:21,594: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:42:26.898392: scheduled__2017-03-10T14:42:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:24:21,594: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:43:26.898392: scheduled__2017-03-10T14:43:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:24:21,607: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:43:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:21,619: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:42:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:21,663: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:43:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:24,719: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:24:24,751: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:43:26.898392: ()
+INFO 2017-03-10 18:24:24,835: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:24:47,679: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:42:26.898392: scheduled__2017-03-10T14:42:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:24:47,680: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:43:26.898392: scheduled__2017-03-10T14:43:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:24:47,680: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:44:26.898392: scheduled__2017-03-10T14:44:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:24:47,686: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:44:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:47,694: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:42:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:47,702: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:43:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:47,744: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:44:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:49,807: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:24:49,819: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:44:26.898392: ()
+INFO 2017-03-10 18:24:49,847: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:24:53,862: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:43:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:24:56,017: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:24:56,028: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:43:26.898392: ()
+INFO 2017-03-10 18:24:56,048: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.003s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.002850055694580078)
+INFO 2017-03-10 18:24:56,056: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:25:00,115: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:42:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:02,298: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:25:02,307: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:42:26.898392: ()
+INFO 2017-03-10 18:25:02,324: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.002s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.002390146255493164)
+INFO 2017-03-10 18:25:02,330: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:25:06,478: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:42:26.898392: scheduled__2017-03-10T14:42:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:06,479: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:42:26.898392: scheduled__2017-03-10T14:42:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:25:06,479: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:43:26.898392: scheduled__2017-03-10T14:43:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:06,479: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:43:26.898392: scheduled__2017-03-10T14:43:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:25:06,480: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:44:26.898392: scheduled__2017-03-10T14:44:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:06,480: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:45:26.898392: scheduled__2017-03-10T14:45:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:06,493: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:45:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:06,502: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:44:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:06,554: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:45:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:09,024: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:25:09,037: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:45:26.898392: ()
+INFO 2017-03-10 18:25:09,103: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:25:52,535: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:44:26.898392: scheduled__2017-03-10T14:44:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:52,535: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:45:26.898392: scheduled__2017-03-10T14:45:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:52,535: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:46:26.898392: scheduled__2017-03-10T14:46:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:25:52,542: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:46:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:52,549: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:44:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:52,557: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:45:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:52,599: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:46:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:25:54,665: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:25:54,676: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:46:26.898392: ()
+INFO 2017-03-10 18:25:54,712: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:28:55,192: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:44:26.898392: scheduled__2017-03-10T14:44:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:28:55,192: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:45:26.898392: scheduled__2017-03-10T14:45:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:28:55,192: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:46:26.898392: scheduled__2017-03-10T14:46:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:28:55,192: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:47:26.898392: scheduled__2017-03-10T14:47:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:28:55,199: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:47:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:28:55,207: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:44:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:28:55,218: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:45:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:28:55,224: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter transfer_to_elastic 2017-03-10T14:46:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:28:55,272: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:47:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:28:57,842: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:28:57,852: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:47:26.898392: ()
+ERROR 2017-03-10 18:29:04,847: root: handle_failure: 1286: Successful parsed but returned no results.: ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/fartash/Dev/ETL-boilerplate/app/transformer/twitter.py", line 31, in process
+    coordinates = self.__get_go_points(tweet['user']['location'])
+  File "/home/fartash/Dev/ETL-boilerplate/app/transformer/twitter.py", line 95, in __get_go_points
+    res = self.googlemaps_api.search(address.strip(string.punctuation + ' ')).first()
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/main.py", line 18, in search
+    return self.geocode.search(location, lat, lng)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/geocode/main.py", line 48, in search
+    data = self.client.get_data(address=address, latitude=latitude, longitude=longitude)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/geocode/client.py", line 40, in get_data
+    return self.send_data(self.API_URL, self.query_parameters)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/client.py", line 23, in send_data
+    self.validator(response)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/validators.py", line 28, in __init__
+    self.validation(response)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/validators.py", line 55, in validation
+    self.validate_google_status(response)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/validators.py", line 46, in validate_google_status
+    raise ApiClientException(message)
+ApiClientException: Successful parsed but returned no results.
+INFO 2017-03-10 18:29:04,862: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:29:04,877: root: handle_failure: 1327: Successful parsed but returned no results.: ()
+INFO 2017-03-10 18:29:06,620: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:44:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:29:08,623: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:29:08,633: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:44:26.898392: ()
+INFO 2017-03-10 18:29:08,659: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.006s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.005656003952026367)
+INFO 2017-03-10 18:29:08,669: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:29:12,726: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:46:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:29:15,164: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:29:15,180: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:46:26.898392: ()
+INFO 2017-03-10 18:29:15,203: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.003s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.0026140213012695312)
+INFO 2017-03-10 18:29:15,210: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:29:19,149: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter transfer_to_elastic 2017-03-10T14:45:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:29:21,948: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:29:21,964: root: run: 1219: Executing <Task(PythonOperator): transfer_to_elastic> on 2017-03-10 14:45:26.898392: ()
+INFO 2017-03-10 18:29:21,986: elasticsearch: log_request_success: 80: HEAD http://localhost:9200/tweets [status:200 request:0.003s]: ('HEAD', u'http://localhost:9200/tweets', 200, 0.003268003463745117)
+INFO 2017-03-10 18:29:21,993: root: execute: 67: Done. Returned value was: None: ()
+INFO 2017-03-10 18:29:25,790: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:44:26.898392: scheduled__2017-03-10T14:44:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:29:25,790: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:44:26.898392: scheduled__2017-03-10T14:44:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:29:25,791: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:45:26.898392: scheduled__2017-03-10T14:45:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:29:25,791: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:45:26.898392: scheduled__2017-03-10T14:45:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:29:25,791: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:46:26.898392: scheduled__2017-03-10T14:46:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:29:25,791: airflow.models.DAG: get_active_runs: 2682: Marking run <DagRun twitter @ 2017-03-10 14:46:26.898392: scheduled__2017-03-10T14:46:26.898392, externally triggered: False> successful: ()
+INFO 2017-03-10 18:29:25,792: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:47:26.898392: scheduled__2017-03-10T14:47:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:29:25,792: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-10 14:48:26.898392: scheduled__2017-03-10T14:48:26.898392, externally triggered: False>: ()
+INFO 2017-03-10 18:29:25,810: airflow.executors.sequential_executor.SequentialExecutor: queue_command: 36: Adding to queue: airflow run twitter analyze_tweets 2017-03-10T14:48:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:29:25,874: airflow.executors.sequential_executor.SequentialExecutor: sync: 26: Executing command: airflow run twitter analyze_tweets 2017-03-10T14:48:26.898392 --local -sd DAGS_FOLDER/twitter.py : ()
+INFO 2017-03-10 18:29:28,143: root: run: 1196: 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 1
+--------------------------------------------------------------------------------
+: ()
+INFO 2017-03-10 18:29:28,151: root: run: 1219: Executing <Task(PythonOperator): analyze_tweets> on 2017-03-10 14:48:26.898392: ()
+ERROR 2017-03-10 18:29:48,492: root: handle_failure: 1286: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Max retries exceeded with url: /maps/api/geocode/json?address=somewhere+with+a+Backwood (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x7f74f8055710>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)): ()
+Traceback (most recent call last):
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/models.py", line 1245, in run
+    result = task_copy.execute(context=context)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/airflow/operators/python_operator.py", line 66, in execute
+    return_value = self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/fartash/Dev/ETL-boilerplate/app/transformer/twitter.py", line 31, in process
+    coordinates = self.__get_go_points(tweet['user']['location'])
+  File "/home/fartash/Dev/ETL-boilerplate/app/transformer/twitter.py", line 95, in __get_go_points
+    res = self.googlemaps_api.search(address.strip(string.punctuation + ' ')).first()
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/main.py", line 18, in search
+    return self.geocode.search(location, lat, lng)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/geocode/main.py", line 48, in search
+    data = self.client.get_data(address=address, latitude=latitude, longitude=longitude)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/geocode/client.py", line 40, in get_data
+    return self.send_data(self.API_URL, self.query_parameters)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/geolocation/client.py", line 22, in send_data
+    response = requests.get(url, params=params)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/fartash/anaconda3/envs/Etl-boilerplate/lib/python2.7/site-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Max retries exceeded with url: /maps/api/geocode/json?address=somewhere+with+a+Backwood (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x7f74f8055710>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))
+INFO 2017-03-10 18:29:48,499: root: handle_failure: 1306: Marking task as FAILED.: ()
+ERROR 2017-03-10 18:29:48,508: root: handle_failure: 1327: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Max retries exceeded with url: /maps/api/geocode/json?address=somewhere+with+a+Backwood (Caused by NewConnectionError('<requests.packages.urllib3.connection.VerifiedHTTPSConnection object at 0x7f74f8055710>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)): ()

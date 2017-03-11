@@ -1,0 +1,1 @@
+INFO 2017-03-11 19:05:38,148: airflow.models.DAG: get_active_runs: 2660: Checking state for <DagRun twitter @ 2017-03-11 19:00:26.898392: scheduled__2017-03-11T19:00:26.898392, externally triggered: False>: ()

@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="twitter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="twitter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/transformer/twitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="25" />
+            <state relative-caret-position="195">
+              <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
                 <element signature="e#3186#3605#0" expanded="false" />
@@ -56,6 +56,16 @@
                 <marker date="1489214959074" expanded="true" signature="3342:3399" ph="SELECT * FRO... records" />
                 <marker date="1489214959074" expanded="true" signature="3342:3418" ph="SELECT * FRO... records" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -895,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/transformer/twitter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="25" />
+        <state relative-caret-position="195">
+          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
             <element signature="e#3186#3605#0" expanded="false" />
@@ -910,6 +920,14 @@
             <marker date="1489214959074" expanded="true" signature="3342:3399" ph="SELECT * FRO... records" />
             <marker date="1489214959074" expanded="true" signature="3342:3418" ph="SELECT * FRO... records" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
